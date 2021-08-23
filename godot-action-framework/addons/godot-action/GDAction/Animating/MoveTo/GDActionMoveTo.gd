@@ -1,4 +1,4 @@
-class_name GDActionMoveTo extends ActionInterval
+class_name GDActionMoveTo extends GDActionInterval
 
 var target_position: Vector2
 

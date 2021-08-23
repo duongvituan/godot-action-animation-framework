@@ -1,4 +1,4 @@
-class_name ActionInterval extends GDAction
+class_name GDActionInterval extends GDAction
 
 var duration: float = 0.0
 

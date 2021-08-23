@@ -1,4 +1,4 @@
-class_name GDActionCustomAction extends ActionInterval
+class_name GDActionCustomAction extends GDActionInterval
 
 var selector: String = ""
 var on_target: Node

@@ -1,4 +1,4 @@
-class_name GDActionRotateBy extends ActionInterval
+class_name GDActionRotateBy extends GDActionInterval
 
 var byAngle: float
 

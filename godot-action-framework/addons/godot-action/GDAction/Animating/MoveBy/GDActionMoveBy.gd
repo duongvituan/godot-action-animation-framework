@@ -1,4 +1,4 @@
-class_name GDActionMoveBy extends ActionInterval
+class_name GDActionMoveBy extends GDActionInterval
 
 var vector: Vector2
 
