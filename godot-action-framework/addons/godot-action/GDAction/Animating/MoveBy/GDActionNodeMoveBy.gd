@@ -18,7 +18,7 @@ func _update(value: float, eased_value: float, delta: float):
 			node.rect_position += self.velocity * delta
 
 
-func move_by(vector, duration, delay = 0.0, speed = 1.0):
+func move_by(vector, duration: float, delay = 0.0, speed = 1.0):
 	if duration <= 0:
 		_finished()
 		return
