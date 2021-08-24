@@ -2,8 +2,10 @@ class_name GDActionNodeMoveBy extends GDActionNodeInterval
 
 var velocity: Vector2 = Vector2.ZERO
 
+
 func get_class() -> String:
 	return "GDActionNodeMoveBy"
+
 
 func _init(action, key, node).(action, key, node):
 	pass
