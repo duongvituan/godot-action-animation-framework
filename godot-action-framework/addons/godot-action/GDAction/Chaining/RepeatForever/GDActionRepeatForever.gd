@@ -27,3 +27,6 @@ func _prepare_remove_action_node_from_key(key: String):
 func _prepare_stop_action_with_key(key):
 	action._stop_action_with_parem_key(key)
 
+
+func reversed() -> GDAction:
+	return get_script().new(action.reversed())

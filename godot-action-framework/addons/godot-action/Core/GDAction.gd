@@ -13,6 +13,7 @@ var _cache_action_node = Dictionary()
 func _init():
 	pass
 
+
 # This func needs to be overridden in subclass
 func _create_action_node(key: String, node: Node):
 	var action_node = GDActionNode.new(self, key, node)
@@ -20,8 +21,8 @@ func _create_action_node(key: String, node: Node):
 	return action_node
 
 
-#Key is the id of the action-node,
-#it determines whether the gd-action needs to be created or reused from the cache.
+# Key is the id of the action-node,
+# It determines whether the gd-action needs to be created or reused from the cache.
 func _create_key(node: Node) -> String:
 	if is_instance_valid(node):
 		return String(node.get_instance_id()) + "_" + String(self.get_instance_id())
@@ -90,6 +91,10 @@ func _run_action(action_node: GDActionNode, node: Node, delay: float, speed: flo
 			gd.add_child(action_node)
 		else:
 			node.get_tree().get_root().add_child(action_node)
+
+
+func reversed():
+	return self
 
 
 # Function callback when action node complete

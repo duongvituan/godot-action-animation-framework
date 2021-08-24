@@ -30,3 +30,10 @@ func _prepare_stop_action_with_key(key):
 	for action in list_action:
 		action._stop_action_with_parem_key(key)
 
+
+func reversed() -> GDAction:
+	var list_action_reversed = []
+	for i in range(list_action.size()-1, -1, -1):
+		list_action_reversed.append(list_action[i].reversed())
+	return get_script().new(list_action_reversed)
+
