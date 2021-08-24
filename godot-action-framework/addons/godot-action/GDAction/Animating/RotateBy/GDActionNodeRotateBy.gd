@@ -20,11 +20,11 @@ func _update(value: float, eased_value: float, delta: float):
 			node.rect_rotation += self.angular_velocity * delta
 
 
-func rotate_by(by_rotate: float, duration: float, delay: float, speed: float):
+func rotate_by(angle: float, duration: float, delay: float, speed: float):
 	if duration <= 0.0:
 		_finished()
 	
-	self.angular_velocity = by_rotate / duration
+	self.angular_velocity = angle / duration
 	self.duration = duration
 	self.delay = delay
 	self.speed = speed

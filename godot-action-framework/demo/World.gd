@@ -25,8 +25,9 @@ func create_action():
 	# for test
 	var move_left = gd.move_by(Vector2(100, 0), 1)
 	var move_down = gd.move_by(Vector2(0, 100), 1)
-	var action_rotate = gd.rotate_by(360, 1)
-	var action_sequence = gd.sequence([move_left, action_rotate, move_down])
+	var action_rotate = gd.rotate_to(720, 1)
+	var action_scale = gd.scale_to(Vector2(2, 2), 1.0)
+	var action_sequence = gd.sequence([move_left, action_rotate, move_down, action_scale])
 	return action_sequence
 
 # test

@@ -17,8 +17,21 @@ func move_by(vector: Vector2, duration: float) -> GDAction:
 
 
 # Animating the Rotation of a Node
-func rotate_by(byAngle: float, duration: float) -> GDAction:
-	return GDActionRotateBy.new(byAngle, duration)
+func rotate_by(by_angle: float, duration: float) -> GDAction:
+	return GDActionRotateBy.new(by_angle, duration)
+
+
+func rotate_to(to_angle: float, duration: float) -> GDAction:
+	return GDActionRotateTo.new(to_angle, duration)
+
+
+# Animating the Scaling of a Node
+func scale_by(vector_scale: Vector2, duration: float) -> GDAction:
+	return GDActionScaleBy.new(vector_scale, duration)
+
+
+func scale_to(vector_scale: Vector2, duration: float) -> GDAction:
+	return GDActionScaleTo.new(vector_scale, duration)
 
 
 # Chaining Actions
