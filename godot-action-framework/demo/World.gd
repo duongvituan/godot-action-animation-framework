@@ -8,12 +8,9 @@ onready var texture_rect := $TextureRect
 const Custom_curve = preload("res://demo/custom_curve.tres")
 
 var action: GDAction
-var action_reversed: GDAction
-
 
 func _ready():
 	action = create_action()
-	action_reversed = action.reversed()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -26,18 +23,14 @@ func create_action():
 	var move_left = gd.move_by(Vector2(100, 0), 1)
 	var move_down = gd.move_by(Vector2(0, 100), 1)
 	var action_rotate = gd.rotate_to(720, 1)
+	var wait = gd.wait(1.0, 0.5)
 	var action_group = gd.group([
-		gd.move_to_x(300, 1),
+		gd.move_by_x(300, 1),
 		gd.move_by(Vector2(0, 200), 1)
 	])
-	var action_sequence = gd.sequence([move_left, action_rotate, move_down, action_group])
+	var action_sequence = gd.sequence([move_left, action_rotate, wait, move_down, action_group])
 	return action_sequence
 
 # test
-var i = 0
 func move_ship_to_click(target_position: Vector2) -> void:
-	if i % 2 == 0:
-		action.start(sprite)
-	else:
-		action_reversed.start(sprite)
-	i += 1
+	action.start(sprite)

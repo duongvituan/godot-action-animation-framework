@@ -105,6 +105,11 @@ _global_script_classes=[ {
 "path": "res://addons/godot-action/GDAction/CustomAction/Perform/GDActionNodePerform.gd"
 }, {
 "base": "GDActionNodeInstant",
+"class": "GDActionNodeRemove",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/RemoveNode/GDActionNodeRemove.gd"
+}, {
+"base": "GDActionNodeInstant",
 "class": "GDActionNodeRepeat",
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/Chaining/Repeat/GDActionNodeRepeat.gd"
@@ -139,10 +144,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/Chaining/Sequence/GDActionNodeSequence.gd"
 }, {
+"base": "GDActionNodeInstant",
+"class": "GDActionNodeWait",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Wait/GDActionNodeWait.gd"
+}, {
 "base": "GDActionInstant",
 "class": "GDActionPerform",
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/CustomAction/Perform/GDActionPerform.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionRemove",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/RemoveNode/GDActionRemove.gd"
 }, {
 "base": "GDActionInstant",
 "class": "GDActionRepeat",
@@ -178,6 +193,11 @@ _global_script_classes=[ {
 "class": "GDActionSequence",
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/Chaining/Sequence/GDActionSequence.gd"
+}, {
+"base": "GDActionInstant",
+"class": "GDActionWait",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Wait/GDActionWait.gd"
 } ]
 _global_script_class_icons={
 "GDAction": "",
@@ -199,6 +219,7 @@ _global_script_class_icons={
 "GDActionNodeMoveBy": "",
 "GDActionNodeMoveTo": "",
 "GDActionNodePerform": "",
+"GDActionNodeRemove": "",
 "GDActionNodeRepeat": "",
 "GDActionNodeRepeatForever": "",
 "GDActionNodeRotateBy": "",
@@ -206,14 +227,17 @@ _global_script_class_icons={
 "GDActionNodeScaleBy": "",
 "GDActionNodeScaleTo": "",
 "GDActionNodeSequence": "",
+"GDActionNodeWait": "",
 "GDActionPerform": "",
+"GDActionRemove": "",
 "GDActionRepeat": "",
 "GDActionRepeatForever": "",
 "GDActionRotateBy": "",
 "GDActionRotateTo": "",
 "GDActionScaleBy": "",
 "GDActionScaleTo": "",
-"GDActionSequence": ""
+"GDActionSequence": "",
+"GDActionWait": ""
 }
 
 [application]

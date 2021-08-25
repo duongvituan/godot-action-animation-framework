@@ -62,6 +62,10 @@ func fade_alpha_to(alpha_value: float, duration: float) -> GDAction:
 	return GDActionFadeAlphaTo.new(alpha_value, duration)
 
 
+# Removing a Node from the Scene
+func remove_node() -> GDAction:
+	return GDActionRemove.new()
+
 # Chaining Actions
 # Create an action that contains a series, or chain, of other actions.
 
@@ -83,6 +87,12 @@ func repeat(action: GDAction, count: int) -> GDAction:
 
 func repeat_forever(action: GDAction) -> GDAction:
 	return GDActionRepeatForever.new(action)
+
+
+# Delaying Actions
+# Creates an action that idles for a randomized period of time.
+func wait(time: float, with_range: float = 0.0) -> GDAction:
+	return GDActionWait.new(time, with_range)
 
 
 # Creating Custom Actions
