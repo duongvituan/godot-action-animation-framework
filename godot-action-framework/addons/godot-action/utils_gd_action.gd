@@ -10,11 +10,27 @@ const ease_out_in = preload("res://addons/godot-action/TimeFunc/EaseOutIn.tres")
 # Animating a Node's Position in a Linear Path
 # Animate linear node movement.
 func move_to(target_position: Vector2, duration: float) -> GDAction:
-	return GDActionMoveTo.new(target_position, duration)
+	return GDActionMoveTo.new(target_position.x, target_position.y, duration)
+
+
+func move_to_x(x: float, duration: float) -> GDAction:
+	return GDActionMoveTo.new(x, null, duration)
+
+
+func move_to_y(y: float, duration: float) -> GDAction:
+	return GDActionMoveTo.new(null, y, duration)
 
 
 func move_by(vector: Vector2, duration: float) -> GDAction:
 	return GDActionMoveBy.new(vector, duration)
+
+
+func move_by_x(x: float, duration: float) -> GDAction:
+	return GDActionMoveBy.new(Vector2(x, 0), duration)
+
+
+func move_by_y(y: float, duration: float) -> GDAction:
+	return GDActionMoveBy.new(Vector2(0, y), duration)
 
 
 # Animating the Rotation of a Node

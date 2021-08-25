@@ -1,10 +1,12 @@
 class_name GDActionMoveTo extends GDActionInterval
 
-var target_position: Vector2
+var x # float or null
+var y # float or null
 
 
-func _init(target_position: Vector2, duration: float).(duration):
-	self.target_position = target_position
+func _init(x, y, duration: float).(duration):
+	self.x = x
+	self.y = y
 
 
 func _create_action_node(key: String, node):
@@ -15,4 +17,5 @@ func _create_action_node(key: String, node):
 
 func _run_action(action_node: GDActionNode, node: Node, delay: float, speed: float):
 	._run_action(action_node, node, delay, speed)
-	action_node.move_to(target_position, duration, delay, speed)
+	action_node.move_to(x, y, duration, delay, speed)
+
