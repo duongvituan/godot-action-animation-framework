@@ -17,7 +17,6 @@ func start_repeat(action_repeat, delay: float , speed: float):
 	self.speed = speed
 
 	_reset_value()
-	stop()
 	_run()
 
 
@@ -32,15 +31,10 @@ func _on_action_object_completed(action_node):
 
 func _run_action_repeat():
 	if not is_instance_valid(node):
-		_finished()
+		finished()
 	
 	var action_node = action_repeat._start_from_action(node, key, speed)
 	
 	if not action_node.is_connected("finished", self, "_on_action_object_completed"):
 		action_node.connect("finished", self, "_on_action_object_completed")
-
-
-func stop():
-	.stop()
-	action_repeat._stop_action_with_parem_key(key)
 

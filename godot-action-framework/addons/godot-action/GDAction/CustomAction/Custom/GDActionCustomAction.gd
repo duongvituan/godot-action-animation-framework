@@ -13,6 +13,6 @@ func _init(selector: String, on_target: Node, duration: float).(duration):
 	self.on_target = on_target
 
 
-func _run_action(action_node: GDActionNode, node: Node, delay: float, speed: float):
-	._run_action(action_node, node, delay, speed)
+func _run_action(action_node: GDActionNode, delay: float, speed: float):
+	._run_action(action_node, delay, speed)
 	action_node.start_custom_action(self.selector, self.on_target, duration, delay, speed)

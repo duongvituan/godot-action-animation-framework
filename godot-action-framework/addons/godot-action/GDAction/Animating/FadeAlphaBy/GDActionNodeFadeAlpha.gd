@@ -17,7 +17,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func fade_alpha_by(alpha_value, duration: float, delay = 0.0, speed = 1.0):
 	if duration <= 0:
-		_finished()
+		finished()
 		return
 	
 	self.alpha_velocity = alpha_value / duration

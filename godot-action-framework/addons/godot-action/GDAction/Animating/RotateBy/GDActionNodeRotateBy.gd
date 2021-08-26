@@ -22,7 +22,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func rotate_by(angle: float, duration: float, delay: float, speed: float):
 	if duration <= 0.0:
-		_finished()
+		finished()
 	
 	self.angular_velocity = angle / duration
 	self.duration = duration

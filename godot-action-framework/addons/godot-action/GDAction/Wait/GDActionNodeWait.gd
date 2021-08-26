@@ -9,7 +9,7 @@ func _init(action, key, node).(action, key, node):
 
 
 func _start_action():
-	_finished()
+	finished()
 
 
 func wait(time: float, with_range: float, delay = 0.0, speed = 1.0):

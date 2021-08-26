@@ -15,10 +15,9 @@ func _init(list_action: Array).():
 	self.list_action = list_action
 
 
-func _run_action(action_node: GDActionNode, node: Node, delay: float, speed: float):
-	._run_action(action_node, node, delay, speed)
+func _run_action(action_node: GDActionNode, delay: float, speed: float):
+	._run_action(action_node, delay, speed)
 	action_node.start_group(self.list_action, delay, speed)
-
 
 
 func _prepare_remove_action_node_from_key(key: String):
@@ -26,9 +25,24 @@ func _prepare_remove_action_node_from_key(key: String):
 		action._remove_action_node_from_parent_key(key)
 
 
-func _prepare_stop_action_with_key(key):
+func _prepare_pause_action_with_key(key):
 	for action in list_action:
-		action._stop_action_with_parem_key(key)
+		action._pause_action_with_parem_key(key)
+
+
+func _prepare_resume_action_with_key(key: String):
+	for action in list_action:
+		action._resume_action_with_parem_key(key)
+
+
+func _prepare_cancel_action_with_key(key: String):
+	for action in list_action:
+		action._cancel_action_with_parem_key(key)
+
+
+func _prepare_finish_action_with_key(key: String):
+	for action in list_action:
+		action._finish_action_with_parem_key(key)
 
 
 func reversed() -> GDAction:

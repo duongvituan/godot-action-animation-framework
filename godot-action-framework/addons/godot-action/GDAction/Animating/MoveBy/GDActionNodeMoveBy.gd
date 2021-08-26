@@ -22,7 +22,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func move_by(vector, duration: float, delay = 0.0, speed = 1.0):
 	if duration <= 0:
-		_finished()
+		finished()
 		return
 	
 	self.velocity = vector / duration

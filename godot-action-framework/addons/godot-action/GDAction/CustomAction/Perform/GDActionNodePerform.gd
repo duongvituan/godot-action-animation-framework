@@ -17,7 +17,6 @@ func start_perform(selector: String, on_target: Node, delay: float, speed: float
 	self.on_target = on_target
 	self.delay = delay
 	self.speed = speed
-	stop()
 	_reset_value()
 	_run()
 
@@ -28,9 +27,9 @@ func _start_action():
 
 func _perform(selector, on_target):
 	if on_target == null:
-		_finished()
+		finished()
 	
 #	on_target.call_deferred(selector)
 	on_target.call(selector)
-	_finished()
+	finished()
 

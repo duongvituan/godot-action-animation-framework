@@ -1,6 +1,8 @@
 class_name GDAction extends Reference
 
 signal action_finished()
+signal action_cancelled()
+
 
 var delay = 0.0
 var speed = 1.0
@@ -75,24 +77,28 @@ func start(node: Node):
 	var action_key = _create_key(node)
 	var action_node = _create_action_node_by_key(action_key, node)
 	action_node.is_remove_when_done = true
-	_run_action(action_node, node, delay, speed)
+	gd._cache.add_action_node(action_node)
+	_run_action(action_node, delay, speed)
 
 # This func is called when the action is started from a chaining aciton
 func _start_from_action(node: Node, key: String, speed: float) -> GDActionNode:
 	var child_key = _update_key_if_need(key)
 	var action_node = _create_action_node_by_key(child_key, node)
-	_run_action(action_node, node, delay, self.speed * speed)
+	_run_action(action_node, delay, self.speed * speed)
 	return action_node
 
-# This func needs to be overridden in subclass
-func _run_action(action_node: GDActionNode, node: Node, delay: float, speed: float):
-	if action_node.get_parent() == null and is_instance_valid(node):
+# This func needs to be overridden in subclassnode
+func _run_action(action_node: GDActionNode, delay: float, speed: float):
+	if action_node.get_parent() == null and is_instance_valid(action_node.node):
 		if is_instance_valid(gd):
-			gd.add_child(action_node)
+			gd._cache.add_child(action_node)
 		else:
-			node.get_tree().get_root().add_child(action_node)
+			action_node.node.get_tree().get_root().add_child(action_node)
+	# Pause old action node running
+	_pause_action_with_key(action_node.key)
 
 
+# Not all actions can be reversed, usually action_by and chain_action.
 func reversed():
 	return self
 
@@ -102,6 +108,15 @@ func _on_action_node_completed(action_node: GDActionNode):
 #	print("_on_action_node_completed: " + action_node.get_class())
 	emit_signal("action_finished")
 	if action_node.is_remove_when_done:
+		gd._cache.remove_action_node(action_node)
+		_remove_action_node(action_node)
+
+
+func _on_action_node_cancelled(action_node: GDActionNode):
+#	print("_on_action_node_cancelled: " + action_node.get_class())
+	emit_signal("action_cancelled")
+	if action_node.is_remove_when_done:
+		gd._cache.remove_action_node(action_node)
 		_remove_action_node(action_node)
 
 
@@ -122,25 +137,94 @@ func with_time_func(time_func: Curve) -> GDAction:
 
 
 # Stop action
-func _prepare_stop_action_with_key(key: String):
+
+# Need override, used to pause dependent action nodes (ex: list_node in sequence or group...)
+func _prepare_pause_action_with_key(key: String):
 	pass
 
-func _stop_action_with_key(key: String):
-	_prepare_stop_action_with_key(key)
+
+func _pause_action_with_key(key: String):
+	_prepare_pause_action_with_key(key)
 	if _cache_action_node.has(key):
-		_cache_action_node[key].stop()
+		_cache_action_node[key].pause()
 
 
-func stop_action_on_node(node: Node):
-	var key = _create_key(node)
-	_stop_action_with_key(key)
-
-
-func _stop_action(action_node: GDActionNode):
-	_stop_action_with_key(action_node.key)
-
-
-func _stop_action_with_parem_key(key: String):
+func _pause_action_with_parem_key(key: String):
 	var child_key = _update_key_if_need(key)
-	_stop_action_with_key(child_key)
+	_pause_action_with_key(child_key)
+
+
+func pause_action_on_node(node: Node):
+	var key = _create_key(node)
+	_pause_action_with_key(key)
+
+
+# Resume action
+
+# Need override, used to resume dependent action nodes (ex: list_node in sequence or group...)
+func _prepare_resume_action_with_key(key: String):
+	pass
+
+
+func _resume_action_with_key(key: String):
+	_prepare_resume_action_with_key(key)
+	if _cache_action_node.has(key):
+		_cache_action_node[key].resume()
+
+
+func _resume_action_with_parem_key(key: String):
+	var child_key = _update_key_if_need(key)
+	_resume_action_with_key(child_key)
+
+
+func resume_action_on_node(node: Node):
+	var key = _create_key(node)
+	_resume_action_with_key(key)
+
+
+# Cancelled action
+
+# Need override, used to cancel dependent action nodes (ex: list_node in sequence or group...)
+func _prepare_cancel_action_with_key(key: String):
+	pass
+
+
+func _cancel_action_with_key(key: String):
+	_prepare_cancel_action_with_key(key)
+	if _cache_action_node.has(key):
+		_cache_action_node[key].cancel()
+
+
+func _cancel_action_with_parem_key(key: String):
+	var child_key = _update_key_if_need(key)
+	_cancel_action_with_key(child_key)
+
+
+func cancel_action_on_node(node: Node):
+	var key = _create_key(node)
+	_cancel_action_with_key(key)
+
+
+# Finish action
+
+# Need override, used to finish dependent action nodes (ex: list_node in sequence or group...)
+func _prepare_finish_action_with_key(key: String):
+	pass
+
+
+func _finish_action_with_key(key: String):
+	_prepare_finish_action_with_key(key)
+	if _cache_action_node.has(key):
+		_cache_action_node[key].finish()
+
+
+func _finish_action_with_parem_key(key: String):
+	var child_key = _update_key_if_need(key)
+	_finish_action_with_key(child_key)
+
+
+func finish_action_on_node(node: Node):
+	var key = _create_key(node)
+	_finish_action_with_key(key)
+
 

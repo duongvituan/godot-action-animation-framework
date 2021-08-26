@@ -1,11 +1,7 @@
 extends Node
 
-const linear = preload("res://addons/godot-action/TimeFunc/Linear.tres")
-const ease_in = preload("res://addons/godot-action/TimeFunc/EaseIn.tres")
-const ease_out = preload("res://addons/godot-action/TimeFunc/EaseOut.tres")
-const ease_in_out = preload("res://addons/godot-action/TimeFunc/EaseInOut.tres")
-const ease_out_in = preload("res://addons/godot-action/TimeFunc/EaseOutIn.tres")
-
+onready var time_func: GDTimeFunc = $time_func
+onready var _cache = $cache
 
 # Animating a Node's Position in a Linear Path
 # Animate linear node movement.
@@ -103,3 +99,30 @@ func perform(selector: String, on_target: Node) -> GDAction:
 func custom_action(selector: String, on_target: Node, duration: float) -> GDAction:
 	return GDActionCustomAction.new(selector, on_target, duration)
 
+
+
+# Manager Action
+
+func pause_all_action_on_node(node: Node):
+	_cache.pause_all_action_on_node(node)
+
+func pause_action_on_node(node: Node, action_node: GDAction):
+	_cache.pause_action_on_node(node, action_node)
+
+func resume_all_action_on_node(node: Node):
+	_cache.resume_all_action_on_node(node)
+
+func resume_action_on_node(node: Node, action_node: GDAction):
+	_cache.resume_action_on_node(node, action_node)
+
+func cancel_all_action_on_node(node: Node):
+	_cache.cancel_all_action_on_node(node)
+
+func cancel_action_on_node(node: Node, action_node: GDAction):
+	_cache.cancel_action_on_node(node, action_node)
+
+func finish_all_action_on_node(node: Node):
+	_cache.finish_all_action_on_node(node)
+
+func finish_action_on_node(node: Node, action_node: GDAction):
+	_cache.finish_action_on_node(node, action_node)

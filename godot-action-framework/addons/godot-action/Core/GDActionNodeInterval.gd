@@ -15,7 +15,7 @@ func _init(action, key, node).(action, key, node):
 
 func _process(delta):
 	if (not is_instance_valid(node)) or duration <= 0.0:
-		_finished()
+		finished()
 		return
 
 	delta *= speed
@@ -28,7 +28,7 @@ func _process(delta):
 		# final frame call update
 		_update_ease_in(duration, duration + delay + delta - current_time)
 		current_time = duration + delay
-		_finished()
+		finished()
 		return
 		
 	if current_time - delta < delay and current_time > delay:

@@ -21,7 +21,6 @@ func start_group(list_action: Array, delay: float, speed: float):
 	self.list_action = list_action
 	self.delay = delay
 	self.speed = speed
-	stop()
 	_reset_value()
 	_run()
 
@@ -36,22 +35,16 @@ func _on_action_object_completed(action_node):
 	count_action_finished += 1
 	
 	if count_action_finished >= self.list_action.size():
-		_finished()
+		finished()
 		return
 
 
 func _run_group(list_action: Array):
 	if not is_instance_valid(node):
-		_finished()
+		finished()
 	
 	for action in list_action:
 		var action_node = action._start_from_action(node, key, speed)
 		if not action_node.is_connected("finished", self, "_on_action_object_completed"):
 			action_node.connect("finished", self, "_on_action_object_completed")
-
-
-func stop():
-	.stop()
-	for action in list_action:
-		action._stop_action_with_parem_key(key)
 

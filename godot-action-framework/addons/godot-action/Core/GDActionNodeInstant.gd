@@ -11,7 +11,7 @@ func get_class() -> String:
 
 func _process(delta):
 	if not is_instance_valid(node):
-		_finished()
+		finished()
 		return
 
 	current_time += delta * speed

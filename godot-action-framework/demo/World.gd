@@ -7,10 +7,10 @@ onready var texture_rect := $TextureRect
 
 const Custom_curve = preload("res://demo/custom_curve.tres")
 
-var action: GDAction
+#var action: GDAction
 
-func _ready():
-	action = create_action()
+#func _ready():
+#	action = create_action()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -33,4 +33,6 @@ func create_action():
 
 # test
 func move_ship_to_click(target_position: Vector2) -> void:
-	action.start(sprite)
+	gd.cancel_all_action_on_node(sprite)
+	create_action().start(sprite)
+#	action.start(sprite)

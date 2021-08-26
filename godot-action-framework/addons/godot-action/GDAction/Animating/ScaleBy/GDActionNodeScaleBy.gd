@@ -22,7 +22,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func scale_by(by_vector_scale: Vector2, duration: float, delay: float, speed: float):
 	if duration <= 0.0:
-		_finished()
+		finished()
 	
 	self.scale_velocity = by_vector_scale / duration
 	self.duration = duration

@@ -18,7 +18,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 func start_custom_action(selector: String, on_target: Node, duration: float, delay = 0.0, speed = 1.0):
 	if duration <= 0:
-		_finished()
+		finished()
 		return
 	
 	self.selector = selector

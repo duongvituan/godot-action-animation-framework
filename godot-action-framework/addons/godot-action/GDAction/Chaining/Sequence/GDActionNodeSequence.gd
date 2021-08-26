@@ -17,7 +17,6 @@ func start_sequence(list_action: Array, delay: float, speed: float):
 	self.delay = delay
 	self.speed = speed
 	_reset_value()
-	stop()
 	_run()
 
 
@@ -29,7 +28,7 @@ func _on_action_object_completed(action_node):
 	action_node.disconnect("finished", self, "_on_action_object_completed")
 	
 	if index_action >= self.list_action.size() - 1:
-		_finished()
+		finished()
 		return
 	
 	_run_sequence(index_action + 1)
@@ -37,7 +36,7 @@ func _on_action_object_completed(action_node):
 
 func _run_sequence(index: int) -> void:
 	if index >= list_action.size() or not is_instance_valid(node):
-		_finished()
+		finished()
 		return
 	
 	index_action = index
@@ -46,10 +45,4 @@ func _run_sequence(index: int) -> void:
 	
 	if not current_action_object.is_connected("finished", self, "_on_action_object_completed"):
 		current_action_object.connect("finished", self, "_on_action_object_completed")
-
-
-func stop():
-	.stop()
-	for action in list_action:
-		action._stop_action_with_parem_key(key)
 

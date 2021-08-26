@@ -88,7 +88,7 @@ func _config_type_node(x, y):
 	
 	else:
 		push_error("GDActionNodeMoveTo much x != null or y != null")
-		_finished()
+		finished()
 
 
 func _config_type_control(x, y):
@@ -109,7 +109,7 @@ func _config_type_control(x, y):
 	
 	else:
 		push_error("GDActionNodeMoveTo much x != null or y != null")
-		_finished()
+		finished()
 
 
 

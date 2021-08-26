@@ -20,7 +20,6 @@ func start_repeat(action_repeat, number_repeat: int, delay: float , speed: float
 	self.speed = speed
 
 	_reset_value()
-	stop()
 	_run()
 
 
@@ -32,7 +31,7 @@ func _on_action_object_completed(action_node):
 	action_node.disconnect("finished", self, "_on_action_object_completed")
 
 	if _count_repeat_action >= number_repeat:
-		_finished()
+		finished()
 		return
 	
 	_run_repeat(_count_repeat_action + 1)
@@ -42,15 +41,10 @@ func _run_repeat(count: int) -> void:
 	_count_repeat_action = count
 	
 	if not is_instance_valid(node):
-		_finished()
+		finished()
 	
 	var action_node = action_repeat._start_from_action(node, key, speed)
 	
 	if not action_node.is_connected("finished", self, "_on_action_object_completed"):
 		action_node.connect("finished", self, "_on_action_object_completed")
-
-
-func stop():
-	.stop()
-	action_repeat._stop_action_with_parem_key(key)
 

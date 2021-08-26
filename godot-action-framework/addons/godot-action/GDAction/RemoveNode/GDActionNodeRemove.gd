@@ -10,7 +10,7 @@ func _init(action, key, node).(action, key, node):
 
 func _start_action():
 	node.queue_free()
-	_finished()
+	finished()
 
 
 func remove_node(time: float, with_range: float, delay = 0.0, speed = 1.0):

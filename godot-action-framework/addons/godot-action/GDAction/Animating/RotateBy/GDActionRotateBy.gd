@@ -13,8 +13,8 @@ func _create_action_node(key: String, node):
 	return action_node
 
 
-func _run_action(action_node: GDActionNode, node: Node, delay: float, speed: float):
-	._run_action(action_node, node, delay, speed)
+func _run_action(action_node: GDActionNode, delay: float, speed: float):
+	._run_action(action_node, delay, speed)
 	action_node.rotate_by(by_angle, duration, delay, speed)
 
 
