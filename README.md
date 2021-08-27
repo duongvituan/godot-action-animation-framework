@@ -55,7 +55,7 @@ gd.sequence([
 ![sequence](https://github.com/duongvituan/godot-action-animation-framework/blob/master/image/sequence.gif)
 
 
-You can use different types of time funcs: linear, ease_in, ease_out, ease_in_out, ease_out_in or custom time func with Curve.
+You can use different types of time funcs: linear, ease_in, ease_out, ease_in_out, ease_out_in or custom time func with `Curve`.
 
 ```python
 # linear
@@ -77,26 +77,37 @@ gd.move_to_x(end_x_position, 2.0).with_time_func(custom_curve).start($Sprite3)
 ```python
 # Animate linear node movement.
 func move_to(target_position: Vector2, duration: float) -> GDAction
+
 func move_to_x(x: float, duration: float) -> GDAction
+
 func move_to_y(y: float, duration: float) -> GDAction
 
+
 func move_by(vector: Vector2, duration: float) -> GDAction
+
 func move_by_x(x: float, duration: float) -> GDAction
+
 func move_by_y(y: float, duration: float) -> GDAction
+
 
 # Animating the Rotation of a Node
 func rotate_by(by_angle: float, duration: float) -> GDAction
+
 func rotate_to(to_angle: float, duration: float) -> GDAction
 
 # Animating the Scaling of a Node
 func scale_by(scale: float, duration: float) -> GDAction
+
 func scale_by_vector(vector_scale: Vector2, duration: float) -> GDAction
 
+
 func scale_to(scale: float, duration: float) -> GDAction
+
 func scale_to_vector(vector_scale: Vector2, duration: float) -> GDAction
 
 # Animating the Transparency of a Node
 func fade_alpha_by(alpha_value: float, duration: float) -> GDAction
+
 func fade_alpha_to(alpha_value: float, duration: float) -> GDAction
 ```
 
@@ -118,8 +129,11 @@ To delay a subsequent action in the chain, insert a `wait` action in the sequenc
 
 ```python
 func group(list_action: Array) -> GDActionGroup
+
 func sequence(list_action: Array) -> GDAction
+
 func repeat(action: GDAction, count: int) -> GDAction
+
 func repeat_forever(action: GDAction) -> GDAction
 ```
 
@@ -130,7 +144,7 @@ func repeat_forever(action: GDAction) -> GDAction
 func wait(time: float, with_range: float = 0.0) -> GDAction
 ```
 
-# Creating Custom Actions
+### Creating Custom Actions
 ```python
 # Call func from node
 func perform(selector: String, on_target: Node) -> GDAction
@@ -143,24 +157,33 @@ func custom_action(selector: String, on_target: Node, duration: float) -> GDActi
 ### Controlling Node Visibility
 ```python
 func hide() -> GDAction
+
 func unhide() -> GDAction
 ```
 
 
 ## Control action on a node
-Pause, resume, cancel and finished
+Pause, resume, cancel and finish action.
 
 ```python
+# pause
 func pause_all_action_on_node(node: Node)
+
 func pause_action_on_node(node: Node, action_node: GDAction)
 
+# resume
 func resume_all_action_on_node(node: Node)
+
 func resume_action_on_node(node: Node, action_node: GDAction)
 
+# cancel
 func cancel_all_action_on_node(node: Node)
+
 func cancel_action_on_node(node: Node, action_node: GDAction)
 
+# finish
 func finish_all_action_on_node(node: Node)
+
 func finish_action_on_node(node: Node, action_node: GDAction)
 ```
 
@@ -172,6 +195,7 @@ gd.cancel_all_action_on_node(node)
 Note that the action will be automatically released when the action is done.
 So if you use pause, you have to use resume to make it work again to free up memory,
 in case you want to stop the action and not resume, you should use cancel or finish.
+
 
 ## Contribution
 
