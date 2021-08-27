@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://demo/reuse/test_reuse_scene.gd" type="Script" id=2]
+[ext_resource path="res://demo/reuse/ClickSprite.gd" type="Script" id=3]
+
+[node name="TestNode" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 90, 175 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 200, 175 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 310.5, 175 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -495.473
+margin_top = 20.8968
+margin_right = -339.474
+margin_bottom = 34.8968
+rect_scale = Vector2( 2, 2 )
+text = "Click node to play action"
+__meta__ = {
+"_edit_use_anchors_": false
+}

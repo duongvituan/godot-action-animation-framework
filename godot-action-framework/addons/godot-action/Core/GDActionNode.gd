@@ -46,15 +46,20 @@ func _ready():
 	set_process(false)
 
 
+func action_done():
+	pass
+
 func finished():
-	is_done = true
 	set_process(false)
+	is_done = true
+	action_done()
 	emit_signal("finished", self)
 
 
 func cancel():
-	is_done = true
 	set_process(false)
+	is_done = true
+	action_done()
 	emit_signal("cancelled", self)
 
 

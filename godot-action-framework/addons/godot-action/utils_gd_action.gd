@@ -40,11 +40,19 @@ func rotate_to(to_angle: float, duration: float) -> GDAction:
 
 # Animating the Scaling of a Node
 # Animate the visual scaling of a node.
-func scale_by(vector_scale: Vector2, duration: float) -> GDAction:
+func scale_by(scale: float, duration: float) -> GDAction:
+	return GDActionScaleBy.new(Vector2(scale, scale), duration)
+
+
+func scale_by_vector(vector_scale: Vector2, duration: float) -> GDAction:
 	return GDActionScaleBy.new(vector_scale, duration)
 
 
-func scale_to(vector_scale: Vector2, duration: float) -> GDAction:
+func scale_to(scale: float, duration: float) -> GDAction:
+	return GDActionScaleTo.new(Vector2(scale, scale), duration)
+
+
+func scale_to_vector(vector_scale: Vector2, duration: float) -> GDAction:
 	return GDActionScaleTo.new(vector_scale, duration)
 
 

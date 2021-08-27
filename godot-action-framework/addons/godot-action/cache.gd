@@ -11,7 +11,7 @@ func pause_all_action_on_node(node: Node):
 	
 	var list_action_node_running = cache_running_action[node_id]
 	for action_node in list_action_node_running:
-		action_node.pause()
+		action_node.action.pause_action_on_node(node)
 
 
 func pause_action_on_node(node: Node, action_node: GDAction):
@@ -26,7 +26,7 @@ func resume_all_action_on_node(node: Node):
 
 	var list_action_node_running = cache_running_action[node_id]
 	for action_node in list_action_node_running:
-		action_node.resume()
+		action_node.action.resume_action_on_node(node)
 
 
 func resume_action_on_node(node: Node, action_node: GDAction):
@@ -41,7 +41,7 @@ func cancel_all_action_on_node(node: Node):
 
 	var list_action_node_running = cache_running_action[node_id]
 	for action_node in list_action_node_running:
-		action_node.cancel()
+		action_node.action.cancel_action_on_node(node)
 
 
 func cancel_action_on_node(node: Node, action_node: GDAction):
@@ -56,7 +56,7 @@ func finish_all_action_on_node(node: Node):
 
 	var list_action_node_running = cache_running_action[node_id]
 	for action_node in list_action_node_running:
-		action_node.finished()
+		action_node.action.finish_action_on_node(node)
 
 
 func finish_action_on_node(node: Node, action_node: GDAction):

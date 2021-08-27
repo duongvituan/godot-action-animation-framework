@@ -21,6 +21,17 @@ func _update(value: float, eased_value: float, delta: float):
 			node.rect_rotation = lerp(from_angle, to_angle, eased_value)
 
 
+func action_done():
+	if not is_instance_valid(node):
+		return
+	match node_type:
+		NodeType.NODE_2D:
+			node.rotation_degrees = fmod(node.rotation_degrees, 360.0)
+		
+		NodeType.CONTROL:
+			node.rect_rotation = fmod(node.rect_rotation, 360.0)
+
+
 func rotate_to(to_angle: float, duration: float, delay: float, speed: float):
 	self.to_angle = to_angle
 	self.duration = duration

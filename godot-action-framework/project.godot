@@ -145,6 +145,11 @@ _global_script_classes=[ {
 "path": "res://addons/godot-action/GDAction/Chaining/Sequence/GDActionNodeSequence.gd"
 }, {
 "base": "GDActionNodeInstant",
+"class": "GDActionNodeVisibility",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Visibility/GDActionNodeVisibility.gd"
+}, {
+"base": "GDActionNodeInstant",
 "class": "GDActionNodeWait",
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/Wait/GDActionNodeWait.gd"
@@ -195,9 +200,19 @@ _global_script_classes=[ {
 "path": "res://addons/godot-action/GDAction/Chaining/Sequence/GDActionSequence.gd"
 }, {
 "base": "GDActionInstant",
+"class": "GDActionVisibility",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Visibility/GDActionVisibility.gd"
+}, {
+"base": "GDActionInstant",
 "class": "GDActionWait",
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/Wait/GDActionWait.gd"
+}, {
+"base": "Node",
+"class": "GDTimeFunc",
+"language": "GDScript",
+"path": "res://addons/godot-action/time_func.gd"
 } ]
 _global_script_class_icons={
 "GDAction": "",
@@ -227,6 +242,7 @@ _global_script_class_icons={
 "GDActionNodeScaleBy": "",
 "GDActionNodeScaleTo": "",
 "GDActionNodeSequence": "",
+"GDActionNodeVisibility": "",
 "GDActionNodeWait": "",
 "GDActionPerform": "",
 "GDActionRemove": "",
@@ -237,18 +253,19 @@ _global_script_class_icons={
 "GDActionScaleBy": "",
 "GDActionScaleTo": "",
 "GDActionSequence": "",
-"GDActionWait": ""
+"GDActionVisibility": "",
+"GDActionWait": "",
+"GDTimeFunc": ""
 }
 
 [application]
 
 config/name="godot-action-framework"
-run/main_scene="res://demo/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-gd="*res://addons/godot-action/utils_gd_action.gd"
+gd="*res://addons/godot-action/utils_gd_action.tscn"
 
 [editor_plugins]
 
