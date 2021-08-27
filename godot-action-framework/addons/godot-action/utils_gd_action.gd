@@ -62,6 +62,7 @@ func fade_alpha_to(alpha_value: float, duration: float) -> GDAction:
 func remove_node() -> GDAction:
 	return GDActionRemove.new()
 
+
 # Chaining Actions
 # Create an action that contains a series, or chain, of other actions.
 
@@ -98,6 +99,18 @@ func perform(selector: String, on_target: Node) -> GDAction:
 
 func custom_action(selector: String, on_target: Node, duration: float) -> GDAction:
 	return GDActionCustomAction.new(selector, on_target, duration)
+
+
+
+# Controlling Node Visibility
+# Control a node's visibility.
+
+func hide() -> GDAction:
+	return GDActionVisibility.new(true)
+
+
+func unhide() -> GDAction:
+	return GDActionVisibility.new(false)
 
 
 
