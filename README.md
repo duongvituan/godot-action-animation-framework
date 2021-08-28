@@ -20,7 +20,8 @@ If you want to know more about installing plugins you can read the [official doc
 ## Demo Code:
 Download source code and run demo
 
-How to create 1 action:
+How to create 1 action, use key `gd` and call func create, ex: I create 1 action move by x:
+
 ```python
 # ex: I create 1 action move_by_x 100 pixel with duration = 1.0s
 var action = gd.move_by_x(100, 1.0)
@@ -161,6 +162,12 @@ func hide() -> GDAction
 func unhide() -> GDAction
 ```
 
+## Reversing an Animation
+This method always returns an action object; however, not all actions are reversible.
+When reversed, some actions return an object that either does nothing or that performs the same action as the original action.
+```python
+func reversed() -> SKAction
+```
 
 ## Control action on a node
 Pause, resume, cancel and finish action.
@@ -169,22 +176,22 @@ Pause, resume, cancel and finish action.
 # pause
 func pause_all_action_on_node(node: Node)
 
-func pause_action_on_node(node: Node, action_node: GDAction)
+func pause_action_on_node(node: Node, action: GDAction)
 
 # resume
 func resume_all_action_on_node(node: Node)
 
-func resume_action_on_node(node: Node, action_node: GDAction)
+func resume_action_on_node(node: Node, action: GDAction)
 
 # cancel
 func cancel_all_action_on_node(node: Node)
 
-func cancel_action_on_node(node: Node, action_node: GDAction)
+func cancel_action_on_node(node: Node, action: GDAction)
 
 # finish
 func finish_all_action_on_node(node: Node)
 
-func finish_action_on_node(node: Node, action_node: GDAction)
+func finish_action_on_node(node: Node, action: GDAction)
 ```
 
 sample code:

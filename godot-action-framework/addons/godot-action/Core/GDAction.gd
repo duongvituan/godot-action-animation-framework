@@ -98,7 +98,9 @@ func _run_action(action_node: GDActionNode, delay: float, speed: float):
 	_pause_action_with_key(action_node.key)
 
 
-# Not all actions can be reversed, usually action_by and chain_action.
+# This method always returns an action object; however, not all actions are reversible.
+# When reversed, some actions return an object that either does nothing or 
+# that performs the same action as the original action.
 func reversed():
 	return self
 

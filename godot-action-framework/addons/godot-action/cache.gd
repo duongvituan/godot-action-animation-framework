@@ -14,8 +14,8 @@ func pause_all_action_on_node(node: Node):
 		action_node.action.pause_action_on_node(node)
 
 
-func pause_action_on_node(node: Node, action_node: GDAction):
-	action_node.pause_action_on_node(node)
+func pause_action_on_node(node: Node, action: GDAction):
+	action.pause_action_on_node(node)
 
 
 func resume_all_action_on_node(node: Node):
@@ -29,8 +29,8 @@ func resume_all_action_on_node(node: Node):
 		action_node.action.resume_action_on_node(node)
 
 
-func resume_action_on_node(node: Node, action_node: GDAction):
-	action_node.resume_action_on_node(node)
+func resume_action_on_node(node: Node, action: GDAction):
+	action.resume_action_on_node(node)
 
 
 func cancel_all_action_on_node(node: Node):
@@ -44,8 +44,8 @@ func cancel_all_action_on_node(node: Node):
 		action_node.action.cancel_action_on_node(node)
 
 
-func cancel_action_on_node(node: Node, action_node: GDAction):
-	action_node.cancel_action_on_node(node)
+func cancel_action_on_node(node: Node, action: GDAction):
+	action.cancel_action_on_node(node)
 
 
 func finish_all_action_on_node(node: Node):
@@ -59,8 +59,8 @@ func finish_all_action_on_node(node: Node):
 		action_node.action.finish_action_on_node(node)
 
 
-func finish_action_on_node(node: Node, action_node: GDAction):
-	action_node.finish_action_on_node(node)
+func finish_action_on_node(node: Node, action: GDAction):
+	action.finish_action_on_node(node)
 
 
 func add_action_node(action_node: GDActionNode):
