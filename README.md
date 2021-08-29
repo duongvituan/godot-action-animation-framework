@@ -20,7 +20,7 @@ If you want to know more about installing plugins you can read the [official doc
 ## Demo Code:
 Download source code and run demo
 
-How to create 1 action, use key `gd` and call func create, ex: I create 1 action move by x:
+How to create 1 action, use keyword `gd` and call func create, ex: I create 1 action move by x:
 
 ```python
 # ex: I create 1 action move_by_x 100 pixel with duration = 1.0s
@@ -110,6 +110,14 @@ func scale_to_vector(vector_scale: Vector2, duration: float) -> GDAction
 func fade_alpha_by(alpha_value: float, duration: float) -> GDAction
 
 func fade_alpha_to(alpha_value: float, duration: float) -> GDAction
+
+
+# Creates an animation change color.
+# Func colorize change color only node.
+func colorize(color: Color, duration: float) -> GDAction:
+
+# Func colorize_all change color node and child node.
+func colorize_all(color: Color, duration: float) -> GDAction
 ```
 
 ### Removing a Node from the Scene

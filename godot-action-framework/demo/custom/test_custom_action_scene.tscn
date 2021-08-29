@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://demo/custom/test_custom_action_scene.gd" type="Script" id=1]
+
+[node name="TestNode" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 52.7183
+margin_top = 55.1146
+margin_right = 208.718
+margin_bottom = 69.1146
+rect_scale = Vector2( 2, 2 )
+text = "Click to start custom action"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+margin_left = 57.3323
+margin_top = 147.232
+margin_right = 502.332
+margin_bottom = 176.232
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchor_right = 0.039
+anchor_bottom = 0.023
+margin_left = 61.0439
+margin_top = 114.457
+margin_right = 61.1079
+margin_bottom = 114.657
+text = "Current time:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -66,6 +66,16 @@ func fade_alpha_to(alpha_value: float, duration: float) -> GDAction:
 	return GDActionFadeAlphaTo.new(alpha_value, duration)
 
 
+# Creates an animation change color.
+
+# Func colorize change color only node
+func colorize(color: Color, duration: float) -> GDAction:
+	return GDActionColorize.new(color, true, duration)
+
+# Func colorize_all change color node and child node
+func colorize_all(color: Color, duration: float) -> GDAction:
+	return GDActionColorize.new(color, false, duration)
+
 # Removing a Node from the Scene
 func remove_node() -> GDAction:
 	return GDActionRemove.new()

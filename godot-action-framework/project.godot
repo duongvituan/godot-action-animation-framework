@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://addons/godot-action/Core/GDAction.gd"
 }, {
 "base": "GDActionInterval",
+"class": "GDActionColorize",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/Colorize/GDActionColorize.gd"
+}, {
+"base": "GDActionInterval",
 "class": "GDActionCustomAction",
 "language": "GDScript",
 "path": "res://addons/godot-action/GDAction/CustomAction/Custom/GDActionCustomAction.gd"
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "GDActionNode",
 "language": "GDScript",
 "path": "res://addons/godot-action/Core/GDActionNode.gd"
+}, {
+"base": "GDActionNodeInterval",
+"class": "GDActionNodeColorize",
+"language": "GDScript",
+"path": "res://addons/godot-action/GDAction/Animating/Colorize/GDActionNodeColorize.gd"
 }, {
 "base": "GDActionNodeInterval",
 "class": "GDActionNodeCustomAction",
@@ -216,6 +226,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "GDAction": "",
+"GDActionColorize": "",
 "GDActionCustomAction": "",
 "GDActionFadeAlphaBy": "",
 "GDActionFadeAlphaTo": "",
@@ -225,6 +236,7 @@ _global_script_class_icons={
 "GDActionMoveBy": "",
 "GDActionMoveTo": "",
 "GDActionNode": "",
+"GDActionNodeColorize": "",
 "GDActionNodeCustomAction": "",
 "GDActionNodeFadeAlphaBy": "",
 "GDActionNodeFadeAlphaTo": "",
