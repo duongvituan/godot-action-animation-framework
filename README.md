@@ -1,6 +1,8 @@
 ![GDAction](https://github.com/duongvituan/godot-action-animation-framework/blob/master/image/main.png)
 
 # GDAction
+This is plugins support make animation in godot, easy to learn, fast to code.
+
 I have used SKSprite and Cocos game engines and I am extremely impressed with the “Action” in these engines.
 
 It's similar to Godot's Tween, but easy to use, simple syntax, I liked it very much.
