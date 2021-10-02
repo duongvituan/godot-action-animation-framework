@@ -3,7 +3,7 @@ class_name GDActionScaleTo extends GDActionInterval
 var vector_scale: Vector2
 
 
-func _init(vector_scale: Vector2, duration: float).(duration):
+func _init(vector_scale: Vector2, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.vector_scale = vector_scale
 
 

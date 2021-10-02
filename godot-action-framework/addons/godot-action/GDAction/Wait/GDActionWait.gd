@@ -4,7 +4,7 @@ var time: float
 var with_range: float
 
 
-func _init(time: float, with_range: float).():
+func _init(time: float, with_range: float, gd_utils: Node).(gd_utils):
 	self.time = time
 	self.with_range = with_range
 

@@ -10,10 +10,10 @@ var time_func = null
 
 
 var _cache_action_node = Dictionary()
+var _gd_utils
 
-
-func _init():
-	pass
+func _init(gd_utils: Node):
+	_gd_utils = gd_utils
 
 
 # This func needs to be overridden in subclass
@@ -77,7 +77,7 @@ func start(node: Node):
 	var action_key = _create_key(node)
 	var action_node = _create_action_node_by_key(action_key, node)
 	action_node.is_remove_when_done = true
-	gd._cache.add_action_node(action_node)
+	_gd_utils._cache.add_action_node(action_node)
 	_run_action(action_node, delay, speed)
 
 # This func is called when the action is started from a chaining aciton
@@ -90,8 +90,8 @@ func _start_from_action(node: Node, key: String, speed: float) -> GDActionNode:
 # This func needs to be overridden in subclassnode
 func _run_action(action_node: GDActionNode, delay: float, speed: float):
 	if action_node.get_parent() == null and is_instance_valid(action_node.node):
-		if is_instance_valid(gd):
-			gd._cache.add_child(action_node)
+		if is_instance_valid(_gd_utils):
+			_gd_utils._cache.add_child(action_node)
 		else:
 			action_node.node.get_tree().get_root().add_child(action_node)
 	# Pause old action node running
@@ -110,7 +110,7 @@ func _on_action_node_completed(action_node: GDActionNode):
 #	print("_on_action_node_completed: " + action_node.get_class())
 	emit_signal("action_finished")
 	if action_node.is_remove_when_done:
-		gd._cache.remove_action_node(action_node)
+		_gd_utils._cache.remove_action_node(action_node)
 		_remove_action_node(action_node)
 
 
@@ -118,7 +118,7 @@ func _on_action_node_cancelled(action_node: GDActionNode):
 #	print("_on_action_node_cancelled: " + action_node.get_class())
 	emit_signal("action_cancelled")
 	if action_node.is_remove_when_done:
-		gd._cache.remove_action_node(action_node)
+		_gd_utils._cache.remove_action_node(action_node)
 		_remove_action_node(action_node)
 
 

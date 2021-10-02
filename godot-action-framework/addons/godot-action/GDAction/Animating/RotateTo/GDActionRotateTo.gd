@@ -3,7 +3,7 @@ class_name GDActionRotateTo extends GDActionInterval
 var to_angle: float
 
 
-func _init(to_angle: float, duration: float).(duration):
+func _init(to_angle: float, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.to_angle = to_angle
 
 

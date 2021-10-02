@@ -1,7 +1,7 @@
 class_name GDActionRemove extends GDActionInstant
 
 
-func _init().():
+func _init(gd_utils: Node).(gd_utils):
 	pass
 
 

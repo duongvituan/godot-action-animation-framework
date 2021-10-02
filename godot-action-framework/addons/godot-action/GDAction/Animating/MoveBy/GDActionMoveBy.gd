@@ -3,7 +3,7 @@ class_name GDActionMoveBy extends GDActionInterval
 var vector: Vector2
 
 
-func _init(vector: Vector2, duration: float).(duration):
+func _init(vector: Vector2, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.vector = vector
 
 

@@ -3,7 +3,7 @@ class_name GDActionScaleBy extends GDActionInterval
 var by_vector_scale: Vector2
 
 
-func _init(by_vector_scale: Vector2, duration: float).(duration):
+func _init(by_vector_scale: Vector2, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.by_vector_scale = by_vector_scale
 
 
@@ -19,7 +19,4 @@ func _run_action(action_node: GDActionNode, delay: float, speed: float):
 
 
 func reversed() -> GDAction:
-#	var scale_x = 1.0 / by_vector_scale.x if by_vector_scale.x != 0.0 else 0.0
-#	var scale_y = 1.0 / by_vector_scale.y if by_vector_scale.x != 0.0 else 0.0
-#	print(scale_x)
 	return get_script().new(-by_vector_scale, duration)

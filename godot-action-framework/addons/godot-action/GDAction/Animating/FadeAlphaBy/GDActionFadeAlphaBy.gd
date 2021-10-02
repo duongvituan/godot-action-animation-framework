@@ -3,7 +3,7 @@ class_name GDActionFadeAlphaBy extends GDActionInterval
 var alpha_value: float
 
 
-func _init(alpha_value: float, duration: float).(duration):
+func _init(alpha_value: float, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.alpha_value = alpha_value
 
 

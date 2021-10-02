@@ -11,7 +11,7 @@ func _update_key_if_need(key: String) -> String:
 	return _create_key_by_parent_key(key)
 
 
-func _init(list_action: Array).():
+func _init(list_action: Array, gd_utils: Node).(gd_utils):
 	self.list_action = list_action
 
 

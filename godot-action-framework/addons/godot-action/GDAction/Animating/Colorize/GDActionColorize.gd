@@ -3,7 +3,7 @@ class_name GDActionColorize extends GDActionInterval
 var color: Color
 var is_self_modulate: bool
 
-func _init(color: Color, is_self_modulate: bool, duration: float).(duration):
+func _init(color: Color, is_self_modulate: bool, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.color = color
 	self.is_self_modulate = is_self_modulate
 

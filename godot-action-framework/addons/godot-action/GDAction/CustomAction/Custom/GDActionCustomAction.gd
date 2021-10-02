@@ -8,7 +8,7 @@ func _create_action_node(key: String, node):
 	return GDActionNodeCustomAction.new(self, key, node)
 
 
-func _init(selector: String, on_target: Node, duration: float).(duration):
+func _init(selector: String, on_target: Node, duration: float, gd_utils: Node).(duration, gd_utils):
 	self.selector = selector
 	self.on_target = on_target
 
