@@ -3,6 +3,11 @@ extends Node
 var cache_running_action: Dictionary = {}
 
 
+func pause_all_action():
+	for action_node in get_all_action_node():
+		action_node.action.pause_all()
+
+
 func pause_all_action_on_node(node: Node):
 	var node_id = node.get_instance_id()
 	
@@ -16,6 +21,11 @@ func pause_all_action_on_node(node: Node):
 
 func pause_action_on_node(node: Node, action: GDAction):
 	action.pause_action_on_node(node)
+
+
+func resume_all_action():
+	for action_node in get_all_action_node():
+		action_node.action.resume_all()
 
 
 func resume_all_action_on_node(node: Node):
@@ -33,6 +43,11 @@ func resume_action_on_node(node: Node, action: GDAction):
 	action.resume_action_on_node(node)
 
 
+func cancel_all_action():
+	for action_node in get_all_action_node():
+		action_node.action.cancel_all()
+
+
 func cancel_all_action_on_node(node: Node):
 	var node_id = node.get_instance_id()
 
@@ -48,6 +63,11 @@ func cancel_action_on_node(node: Node, action: GDAction):
 	action.cancel_action_on_node(node)
 
 
+func finish_all_action():
+	for action_node in get_all_action_node():
+		action_node.action.finish_all()
+
+
 func finish_all_action_on_node(node: Node):
 	var node_id = node.get_instance_id()
 
@@ -61,6 +81,14 @@ func finish_all_action_on_node(node: Node):
 
 func finish_action_on_node(node: Node, action: GDAction):
 	action.finish_action_on_node(node)
+
+
+func get_all_action_node():
+	var output = []
+	for node_id in cache_running_action:
+		for action_node in cache_running_action[node_id]:
+			output.append(action_node)
+	return output
 
 
 func add_action_node(action_node: GDActionNode):

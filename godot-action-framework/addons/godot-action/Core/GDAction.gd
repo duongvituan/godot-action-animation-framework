@@ -161,6 +161,11 @@ func pause_action_on_node(node: Node):
 	_pause_action_with_key(key)
 
 
+func pause_all():
+	for key in _cache_action_node:
+		_pause_action_with_key(key)
+
+
 # Resume action
 
 # Need override, used to resume dependent action nodes (ex: list_node in sequence or group...)
@@ -183,6 +188,10 @@ func resume_action_on_node(node: Node):
 	var key = _create_key(node)
 	_resume_action_with_key(key)
 
+
+func resume_all():
+	for key in _cache_action_node:
+		_resume_action_with_key(key)
 
 # Cancelled action
 
@@ -207,6 +216,11 @@ func cancel_action_on_node(node: Node):
 	_cancel_action_with_key(key)
 
 
+func cancel_all():
+	for key in _cache_action_node:
+		_cancel_action_with_key(key)
+
+
 # Finish action
 
 # Need override, used to finish dependent action nodes (ex: list_node in sequence or group...)
@@ -217,7 +231,7 @@ func _prepare_finish_action_with_key(key: String):
 func _finish_action_with_key(key: String):
 	_prepare_finish_action_with_key(key)
 	if _cache_action_node.has(key):
-		_cache_action_node[key].finish()
+		_cache_action_node[key].finished()
 
 
 func _finish_action_with_parem_key(key: String):
@@ -230,3 +244,6 @@ func finish_action_on_node(node: Node):
 	_finish_action_with_key(key)
 
 
+func finish_all():
+	for key in _cache_action_node:
+		_finish_action_with_key(key)

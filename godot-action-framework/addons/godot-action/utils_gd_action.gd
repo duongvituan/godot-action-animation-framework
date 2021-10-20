@@ -119,10 +119,12 @@ func custom_action(selector: String, on_target: Node, duration: float) -> GDActi
 	return GDActionCustomAction.new(selector, on_target, duration, self)
 
 
+func run(action: GDAction, on_target: Node, is_waiting_finished: bool = true) -> GDAction:
+	return GDActionRun.new(action, on_target, is_waiting_finished, self)
+
 
 # Controlling Node Visibility
 # Control a node's visibility.
-
 func hide() -> GDAction:
 	return GDActionVisibility.new(true, self)
 
@@ -134,11 +136,18 @@ func unhide() -> GDAction:
 
 # Manager Action
 
+func pause_all_action():
+	_cache.pause_all_action()
+
 func pause_all_action_on_node(node: Node):
 	_cache.pause_all_action_on_node(node)
 
 func pause_action_on_node(node: Node, action: GDAction):
 	_cache.pause_action_on_node(node, action)
+
+
+func resume_all_action():
+	_cache.resume_all_action()
 
 func resume_all_action_on_node(node: Node):
 	_cache.resume_all_action_on_node(node)
@@ -146,14 +155,23 @@ func resume_all_action_on_node(node: Node):
 func resume_action_on_node(node: Node, action: GDAction):
 	_cache.resume_action_on_node(node, action)
 
+
+func cancel_all_action():
+	_cache.cancel_all_action()
+
 func cancel_all_action_on_node(node: Node):
 	_cache.cancel_all_action_on_node(node)
 
 func cancel_action_on_node(node: Node, action: GDAction):
 	_cache.cancel_action_on_node(node, action)
 
+
+func finish_all_action():
+	_cache.finish_all_action()
+
 func finish_all_action_on_node(node: Node):
 	_cache.finish_all_action_on_node(node)
 
 func finish_action_on_node(node: Node, action: GDAction):
 	_cache.finish_action_on_node(node, action)
+
