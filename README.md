@@ -162,6 +162,9 @@ func perform(selector: String, on_target: Node) -> GDAction
 
 # Creates an custom action that executes a func over a duration.
 func custom_action(selector: String, on_target: Node, duration: float) -> GDAction
+
+# Run and wait action on other node.
+func run(action: GDAction, on_target: Node, is_waiting_finished: bool = true) -> GDAction
 ```
 
 
@@ -184,21 +187,29 @@ Pause, resume, cancel and finish action.
 
 ```python
 # pause
+func pause_all_action()
+
 func pause_all_action_on_node(node: Node)
 
 func pause_action_on_node(node: Node, action: GDAction)
 
 # resume
+func resume_all_action()
+
 func resume_all_action_on_node(node: Node)
 
 func resume_action_on_node(node: Node, action: GDAction)
 
 # cancel
+func cancel_all_action()
+
 func cancel_all_action_on_node(node: Node)
 
 func cancel_action_on_node(node: Node, action: GDAction)
 
 # finish
+func finish_all_action()
+
 func finish_all_action_on_node(node: Node)
 
 func finish_action_on_node(node: Node, action: GDAction)
