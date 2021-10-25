@@ -230,9 +230,9 @@ _global_script_classes=[ {
 "path": "res://addons/godot-action/GDAction/Wait/GDActionWait.gd"
 }, {
 "base": "Node",
-"class": "GDTimeFunc",
+"class": "GDEaseFunc",
 "language": "GDScript",
-"path": "res://addons/godot-action/time_func.gd"
+"path": "res://addons/godot-action/ease_func.gd"
 } ]
 _global_script_class_icons={
 "GDAction": "",
@@ -279,7 +279,7 @@ _global_script_class_icons={
 "GDActionSequence": "",
 "GDActionVisibility": "",
 "GDActionWait": "",
-"GDTimeFunc": ""
+"GDEaseFunc": ""
 }
 
 [application]

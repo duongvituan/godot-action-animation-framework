@@ -19,7 +19,7 @@ func start_move() -> void:
 	gd.move_to_x(end_x_position, 2.0).start($Sprite)
 	
 	# ease_in
-	gd.move_to_x(end_x_position, 2.0).with_time_func(gd.time_func.ease_in).start($Sprite2)
+	gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2)
 	
 	# ease_out
 	gd.move_to_x(end_x_position, 2.0).with_time_func(custom_curve).start($Sprite3)
