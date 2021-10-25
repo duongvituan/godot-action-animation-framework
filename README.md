@@ -15,7 +15,11 @@ You can use it to code some simple animations, with just a few simple lines of c
 
 - Fix bug crash when use reverse action
 
-- Add ease function (ex: gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2))
+- Add ease function:
+ex:
+```python
+gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2)
+```
 
 
 ## Installation
