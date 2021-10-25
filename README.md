@@ -11,6 +11,11 @@ So I have remake this feature on Godot, you can use it completely for free.
 
 You can use it to code some simple animations, with just a few simple lines of code.
 
+## Update 1.0.1 (25/10/21)
+
+- Fix bug crash when use reverse action
+
+- Add ease function (ex: gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2))
 
 
 ## Installation
@@ -65,13 +70,13 @@ You can use different types of time funcs: linear, ease_in, ease_out, ease_in_ou
 gd.move_to_x(end_x_position, 2.0).start($Sprite)
 
 # ease_in
-gd.move_to_x(end_x_position, 2.0).with_time_func(gd.time_func.ease_in).start($Sprite2)
+gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2)
 
-# ease_out
+# custom time func with curve
 gd.move_to_x(end_x_position, 2.0).with_time_func(custom_curve).start($Sprite3)
 ```
 
-![sequence](https://github.com/duongvituan/godot-action-animation-framework/blob/master/image/time_func.gif)
+![ease](https://github.com/duongvituan/godot-action-animation-framework/blob/master/image/time_func.gif)
 
 
 ## Action
@@ -180,6 +185,30 @@ This method always returns an action object; however, not all actions are revers
 When reversed, some actions return an object that either does nothing or that performs the same action as the original action.
 ```python
 func reversed() -> SKAction
+```
+
+## Config property action
+
+```python
+func with_delay(delay: float) -> GDAction:
+
+func with_speed(speed: float) -> GDAction:
+
+func with_time_func(time_func: Curve) -> GDAction:
+
+func with_easing(ease_func_value: float) -> GDAction:
+```
+
+ease func cheat sheet:
+
+![ease_func](https://raw.githubusercontent.com/godotengine/godot-docs/3.3/img/ease_cheatsheet.png)
+
+sample code:
+
+```python
+gd.move_by_x(300, 1.0).with_easing(2.0).start(node)
+
+gd.move_by_y(200, 1.0).with_time_func(custom_curve).start(node)
 ```
 
 ## Control action on a node
