@@ -1,4 +1,4 @@
-extends Node2D
+extends DemoScreen
 
 onready var info_label := $CanvasLayer/Label
 onready var current_time_label := $CanvasLayer/Label2
@@ -34,3 +34,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func action_done():
 	info_label.text = "custom action finish"
 	is_running_action = false
+
+func get_name() -> String:
+	return "Custom"

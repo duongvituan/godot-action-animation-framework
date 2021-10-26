@@ -1,4 +1,4 @@
-extends Node2D
+extends DemoScreen
 
 onready var node := $Sprite
 onready var label = $CanvasLayer/Label
@@ -49,3 +49,5 @@ func action_done():
 	is_running_action = false
 
 
+func get_name() -> String:
+	return "Reverse"

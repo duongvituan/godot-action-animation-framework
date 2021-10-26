@@ -1,4 +1,4 @@
-extends Node2D
+extends DemoScreen
 
 # we can initiate action once and use it for other nodes
 var action_animation_tap: GDAction
@@ -17,3 +17,6 @@ func _ready():
 
 func click_node(node):
 	action_animation_tap.start(node)
+
+func get_name() -> String:
+	return "Resue"

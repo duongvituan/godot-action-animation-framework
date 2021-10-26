@@ -1,4 +1,4 @@
-extends Node2D
+extends DemoScreen
 
 onready var node := $Sprite
 
@@ -11,8 +11,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func move_node_to_click(target_position: Vector2) -> void:
 	gd.cancel_all_action_on_node(node)
 	
-	gd.sequence([
+	gd.group([
 		gd.move_to(target_position, 0.5),
-		gd.rotate_to(360, 0.5)
+		gd.rotate_by(360, 0.5)
 	]).start(node)
 
+func get_name() -> String:
+	return "Group"

@@ -1,7 +1,7 @@
-extends Node2D
+extends DemoScreen
 
 
-const custom_curve = preload("res://demo/time_func/custom_curve.tres")
+const custom_curve = preload("res://demo/list_demo/time_func/custom_curve.tres")
 var end_x_position: float
 
 
@@ -24,3 +24,6 @@ func start_move() -> void:
 	# ease_out
 	gd.move_to_x(end_x_position, 2.0).with_time_func(custom_curve).start($Sprite3)
 
+
+func get_name() -> String:
+	return "Time Func"
