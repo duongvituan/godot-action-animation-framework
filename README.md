@@ -11,7 +11,8 @@ So I have remake this feature on Godot, you can use it completely for free.
 
 You can use it to code some simple animations, with just a few simple lines of code.
 
-## Update 1.0.1 (25/10/21)
+## Update 1.0.2 (26/10/21)
+Change logs:
 
 - Fix bug crash when use reverse action
 
@@ -20,6 +21,10 @@ ex:
 ```python
 gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2)
 ```
+
+- Fix bug crash of action repeat when the node was free before the action complete.
+
+- Handle preview demo.
 
 
 ## Installation
