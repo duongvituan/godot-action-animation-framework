@@ -11,8 +11,8 @@ So I have remake this feature on Godot, you can use it completely for free.
 
 You can use it to code some simple animations, with just a few simple lines of code.
 
-## Update 1.0.2 (26/10/21)
-Change logs:
+## Update 1.0.3 (29/10/21)
+Change logs vs 1.0:
 
 - Fix bug crash when use reverse action
 
@@ -25,6 +25,8 @@ gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprit
 - Fix bug crash of action repeat when the node was free before the action complete.
 
 - Handle preview demo.
+
+- Now, action perform can pass param.
 
 
 ## Installation
@@ -172,7 +174,7 @@ func wait(time: float, with_range: float = 0.0) -> GDAction
 ### Creating Custom Actions
 ```python
 # Call func from node
-func perform(selector: String, on_target: Node) -> GDAction
+func perform(selector: String, on_target: Node, args: Array = []) -> GDAction
 
 # Creates an custom action that executes a func over a duration.
 func custom_action(selector: String, on_target: Node, duration: float) -> GDAction
