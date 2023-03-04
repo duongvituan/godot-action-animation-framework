@@ -1,7 +1,7 @@
 extends DemoScreen
 
-onready var node := $Sprite
-onready var label = $CanvasLayer/Label
+@onready var node := $Sprite
+@onready var label = $CanvasLayer/Label
 
 
 var action: GDAction
@@ -23,8 +23,8 @@ func _ready():
 	# A new action that reverses an action’s behavior.
 	action_reversed = action.reversed()
 	
-	action.connect("action_finished", self, "action_done")
-	action_reversed.connect("action_finished", self, "action_done")
+	action.connect("action_finished", self.action_done)
+	action_reversed.connect("action_finished", self.action_done)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -49,5 +49,5 @@ func action_done():
 	is_running_action = false
 
 
-func get_name() -> String:
+func get_sceen_name() -> String:
 	return "Reverse"

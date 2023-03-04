@@ -1,13 +1,13 @@
 extends Node2D
 
-onready var demo_loader := $DemoLoader
-onready var demo_container := $DemoContainer
-onready var name_label := $Panel/MarginContainer/VBoxContainer/Label
+@onready var demo_loader: DemoLoader = $DemoLoader
+@onready var demo_container := $DemoContainer
+@onready var name_label := $Panel/MarginContainer/VBoxContainer/Label
 
-var demo_screen: DemoScreen setget _set_demo_screen
+var demo_screen: DemoScreen = null : set = _set_demo_screen
 
 func _ready():
-	self.demo_screen = demo_loader.get_first_screen().instance()
+	self.demo_screen = demo_loader.get_first_screen().instantiate() as DemoScreen
 
 
 func _input(event):
@@ -18,22 +18,22 @@ func _input(event):
 	elif event.is_action_pressed("reset_demo"):
 		on_reset()
 
-func _set_demo_screen(demo_screen: DemoScreen):
-	demo_container.demo_screen = demo_screen
-	_update_control_node(demo_screen)
+func _set_demo_screen(ds: DemoScreen):
+	demo_container.demo_screen = ds
+	_update_control_node(ds)
 	
 
 func on_reset():
-	self.demo_screen = demo_loader.get_current_screen().instance()
+	self.demo_screen = demo_loader.get_current_screen().instantiate()
 
 
 func on_next():
-	self.demo_screen = demo_loader.next().instance()
+	self.demo_screen = demo_loader.next().instantiate()
 
 
 func on_previous():
-	self.demo_screen = demo_loader.back().instance()
+	self.demo_screen = demo_loader.back().instantiate()
 
 
-func _update_control_node(demo_screen: DemoScreen):
-	name_label.text = "Name: " + demo_screen.get_name()
+func _update_control_node(ds: DemoScreen):
+	name_label.text = "Name: " + ds.get_sceen_name()

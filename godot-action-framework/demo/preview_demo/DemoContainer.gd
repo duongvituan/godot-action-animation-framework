@@ -1,6 +1,6 @@
 extends Node2D
 
-var demo_screen: DemoScreen setget _set_demo_screen , _get_demo_screen
+var demo_screen: DemoScreen : set = _set_demo_screen , get =_get_demo_screen
 
 
 func _remove_old_screen():
@@ -9,9 +9,9 @@ func _remove_old_screen():
 		child.queue_free()
 
 
-func _set_demo_screen(demo_screen: DemoScreen):
+func _set_demo_screen(ds: DemoScreen):
 	_remove_old_screen()
-	add_child(demo_screen)
+	add_child(ds)
 
 
 func _get_demo_screen() -> DemoScreen:

@@ -1,63 +1,64 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ddr0wry2vku4q"]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://demo/list_demo/time_func/demo.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://dlga224ecv67n" path="res://icon.png" id="1"]
+[ext_resource type="Script" path="res://demo/list_demo/time_func/demo.gd" id="2"]
 
 [node name="Demo" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 60.823, 215.992 )
-texture = ExtResource( 1 )
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(60.823, 215.992)
+texture = ExtResource("1")
 
 [node name="Label" type="Label" parent="Sprite"]
-margin_left = -19.6381
-margin_top = -49.488
-margin_right = 20.3619
-margin_bottom = -18.488
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_top = -64.0
+offset_right = -9.5
+offset_bottom = -38.0
+grow_horizontal = 2
 text = "linear
 "
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 61.6295, 327.322 )
-texture = ExtResource( 1 )
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(61.6295, 327.322)
+texture = ExtResource("1")
 
 [node name="Label" type="Label" parent="Sprite2"]
-margin_left = -23.5657
-margin_top = -52.6301
-margin_right = 24.4343
-margin_bottom = -38.6301
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = -64.0
+offset_right = -3.0
+offset_bottom = -38.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "ease_in"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 63.0876, 438.687 )
-texture = ExtResource( 1 )
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(63.0876, 438.687)
+texture = ExtResource("1")
 
 [node name="Label" type="Label" parent="Sprite3"]
-margin_left = -22.6935
-margin_top = -50.4301
-margin_right = 25.3065
-margin_bottom = -36.4301
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = -64.0
+offset_right = -3.0
+offset_bottom = -38.0
+grow_horizontal = 2
 text = "custom"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 550.062
-margin_top = 82.3491
-margin_right = 717.062
-margin_bottom = 96.3491
-rect_scale = Vector2( 2, 2 )
 text = "Click screen to start move"
-__meta__ = {
-"_edit_use_anchors_": false
-}
