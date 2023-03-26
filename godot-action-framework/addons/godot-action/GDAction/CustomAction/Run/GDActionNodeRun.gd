@@ -28,7 +28,7 @@ func _start_action():
 
 
 func _on_action_object_completed(action_node):
-	action_node.finished.disconnect(self._on_action_object_completed)
+	action_node.finished_action_signal.disconnect(self._on_action_object_completed)
 	finished()
 
 
@@ -41,6 +41,6 @@ func _start_run_action(run_action, on_target, is_waiting_finished) -> void:
 	if not is_waiting_finished:
 		finished()
 	
-	if not action_node.finished.is_connected(self._on_action_object_completed):
-		action_node.finished.connect(self._on_action_object_completed)
+	if not action_node.finished_action_signal.is_connected(self._on_action_object_completed):
+		action_node.finished_action_signal.connect(self._on_action_object_completed)
 
