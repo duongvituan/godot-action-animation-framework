@@ -13,12 +13,7 @@ func _init(action, key, node):
 
 
 func _update(value: float, eased_value: float, delta: float):
-	match node_type:
-		NodeType.NODE_2D:
-			node.scale = lerp(from_scale, to_scale, eased_value)
-		
-		NodeType.CONTROL:
-			node.rect_scale = lerp(from_scale, to_scale, eased_value)
+	node.scale = lerp(from_scale, to_scale, eased_value)
 
 
 func scale_to(vector_scale: Vector2, duration: float, delay: float, speed: float):
@@ -29,12 +24,7 @@ func scale_to(vector_scale: Vector2, duration: float, delay: float, speed: float
 	self.duration = duration
 	self.delay = delay
 	self.speed = speed
-	
-	match node_type:
-		NodeType.NODE_2D:
-			self.from_scale = node.scale
-		NodeType.CONTROL:
-			self.from_scale = node.rect_scale
+	self.from_scale = node.scale
 	
 	_reset_value()
 	_run()
