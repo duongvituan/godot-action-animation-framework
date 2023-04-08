@@ -11,23 +11,6 @@ So I have remake this feature on Godot, you can use it completely for free.
 
 You can use it to code some simple animations, with just a few simple lines of code.
 
-## Update 1.0.3 (29/10/21)
-Change logs vs 1.0:
-
-- Fix bug crash when use reverse action
-
-- Add ease function:
-ex:
-```python
-gd.move_to_x(end_x_position, 2.0).with_easing(gd.ease_func.ease_in).start($Sprite2)
-```
-
-- Fix bug crash of action repeat when the node was free before the action complete.
-
-- Handle preview demo.
-
-- Now, action perform can pass param.
-
 
 ## Installation
 This is a regular editor plugin. Copy the contents of addons/godot-action into the same folder in your project, and activate it in your project settings.
