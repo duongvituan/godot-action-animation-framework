@@ -11,12 +11,12 @@ func _ready():
 		gd.scale_to(1.0, 0.1)
 	])
 	
-	$Sprite.connect("click", self, "click_node")
-	$Sprite2.connect("click", self, "click_node")
-	$Sprite3.connect("click", self, "click_node")
+	$Sprite.connect("click", self.click_node)
+	$Sprite2.connect("click", self.click_node)
+	$Sprite3.connect("click", self.click_node)
 
 func click_node(node):
 	action_animation_tap.start(node)
 
-func get_name() -> String:
-	return "Resue"
+func get_sceen_name() -> String:
+	return "Reuse"

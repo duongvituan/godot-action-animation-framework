@@ -25,5 +25,5 @@ func start_move() -> void:
 	gd.move_to_x(end_x_position, 2.0).with_time_func(custom_curve).start($Sprite3)
 
 
-func get_name() -> String:
+func get_sceen_name() -> String:
 	return "Time Func"

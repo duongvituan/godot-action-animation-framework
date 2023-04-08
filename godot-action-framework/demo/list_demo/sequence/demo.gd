@@ -1,6 +1,6 @@
 extends DemoScreen
 
-onready var node := $Sprite
+@onready var node := $Sprite
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -17,5 +17,5 @@ func move_node_to_click(target_position: Vector2) -> void:
 	]).start(node)
 
 
-func get_name() -> String:
+func get_sceen_name() -> String:
 	return "Sequence"
